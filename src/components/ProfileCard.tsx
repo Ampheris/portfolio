@@ -15,11 +15,6 @@ interface ProfileCardProps {
   miniAvatarUrl?: string;
   name?: string;
   title?: string;
-  handle?: string;
-  status?: string;
-  contactText?: string;
-  showUserInfo?: boolean;
-  onContactClick?: () => void;
 }
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
@@ -29,7 +24,7 @@ const ANIMATION_CONFIG = {
   INITIAL_X_OFFSET: 70,
   INITIAL_Y_OFFSET: 60,
   DEVICE_BETA_OFFSET: 20,
-  ENTER_TRANSITION_MS: 180
+  ENTER_TRANSITION_MS: 180,
 } as const;
 
 const clamp = (v: number, min = 0, max = 100): number => Math.min(Math.max(v, min), max);
@@ -48,13 +43,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
   name = 'Mathilda Holmström',
   title = 'Fullstack Developer',
-  handle = 'javicodes',
-  contactText = 'Contact',
-  showUserInfo = false,
-  onContactClick
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -101,7 +91,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         '--pointer-from-top': `${percentY / 100}`,
         '--pointer-from-left': `${percentX / 100}`,
         '--rotate-x': `${round(-(centerX / 5))}deg`,
-        '--rotate-y': `${round(centerY / 4)}deg`
+        '--rotate-y': `${round(centerY / 4)}deg`,
       } as Record<string, string>;
 
       for (const [k, v] of Object.entries(properties)) wrap.style.setProperty(k, v);
@@ -170,7 +160,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         rafId = null;
         running = false;
         lastTs = 0;
-      }
+      },
     };
   }, [enableTilt]);
 
@@ -306,7 +296,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     handlePointerMove,
     handlePointerEnter,
     handlePointerLeave,
-    handleDeviceOrientation
+    handleDeviceOrientation,
   ]);
 
   const cardStyle = useMemo(
@@ -316,14 +306,11 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         '--grain': grainUrl ? `url(${grainUrl})` : 'none',
         '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT,
         '--behind-glow-color': behindGlowColor ?? 'rgba(125, 190, 255, 0.67)',
-        '--behind-glow-size': behindGlowSize ?? '50%'
-      }) as React.CSSProperties,
+        '--behind-glow-size': behindGlowSize ?? '50%',
+      } as React.CSSProperties),
     [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize]
   );
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
 
   return (
     <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
@@ -339,41 +326,11 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 src={profile.src}
                 alt={`${name || 'User'} avatar`}
                 loading="lazy"
-                onError={e => {
+                onError={(e) => {
                   const t = e.target as HTMLImageElement;
                   t.style.display = 'none';
                 }}
               />
-              {showUserInfo && (
-                <div className="pc-user-info">
-                  <div className="pc-user-details">
-                    <div className="pc-mini-avatar">
-                      <img
-                        src={miniAvatarUrl || profile.src}
-                        alt={`${name || 'User'} mini avatar`}
-                        loading="lazy"
-                        onError={e => {
-                          const t = e.target as HTMLImageElement;
-                          t.style.opacity = '0.5';
-                          t.src = profile.src;
-                        }}
-                      />
-                    </div>
-                    <div className="pc-user-text">
-                      <div className="pc-handle">@{handle}</div>
-                    </div>
-                  </div>
-                  <button
-                    className="pc-contact-btn"
-                    onClick={handleContactClick}
-                    style={{ pointerEvents: 'auto' }}
-                    type="button"
-                    aria-label={`Contact ${name || 'user'}`}
-                  >
-                    {contactText}
-                  </button>
-                </div>
-              )}
             </div>
             <div className="pc-content">
               <div className="pc-details">
