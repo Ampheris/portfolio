@@ -22,20 +22,20 @@ export default function ProjectsSection() {
           {projects.map(({ title, description, techStack, image, slug }, index) => (
             <div
               key={`project-${index}`}
-              className="group overflow-hidden rounded-2xl border border-gray-800 bg-gray-950 transition-all duration-300 hover:border-purple-500/50"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-gray-800 bg-gray-950 transition-all duration-300 hover:border-purple-500/50"
             >
               {image ? (
                 <div className="h-64 overflow-hidden">
                   <img
                     src={image.src}
                     alt={title}
-                    className="object-fill transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-fill transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               ) : (
                 <div className="bg-linear-to-br h-64 from-gray-800 to-gray-900 transition-transform duration-500 group-hover:scale-105"></div>
               )}
-              <div className="p-4">
+              <div className="flex flex-1 flex-col p-4">
                 <h3 className="mb-3 text-2xl font-bold text-white">{title} </h3>
                 <p className="mb-6 text-gray-400">{description}</p>
                 <div className="mb-6 flex flex-wrap gap-2">
@@ -52,7 +52,7 @@ export default function ProjectsSection() {
                 </div>
                 <Link
                   href={`/${slug}`}
-                  className="mx-auto block w-fit rounded-full bg-gray-800 px-6 py-2 text-center text-white transition-colors duration-300 hover:bg-purple-700"
+                  className="mx-auto mt-auto block w-fit rounded-full bg-gray-800 px-6 py-2 text-center text-white transition-colors duration-300 hover:bg-purple-700"
                 >
                   Read More
                 </Link>

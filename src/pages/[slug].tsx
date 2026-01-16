@@ -54,7 +54,7 @@ export default function Project() {
 
         <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">{project.title}</h1>
 
-        <div className="grid items-start gap-12 md:grid-cols-2">
+        <div className="grid items-start gap-12">
           <div className="overflow-hidden rounded-2xl border border-gray-800 shadow-2xl shadow-purple-900/20">
             <Image
               src={project.image}
@@ -66,17 +66,7 @@ export default function Project() {
 
           <div className="space-y-8">
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-purple-400">About the Project</h2>
-              <p className="text-lg leading-relaxed text-gray-300">{project.description}</p>
-              {project.detailedDescription?.map((paragraph, index) => (
-                <p key={index} className="mt-4 text-lg leading-relaxed text-gray-300">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-
-            <div>
-              <h2 className="mb-4 text-2xl font-bold text-purple-400">Tech Stack</h2>
+              <h2 className="mb-4 text-3xl font-bold text-purple-400">Tech Stack</h2>
               <div className="flex flex-wrap gap-3">
                 {project.techStack.map((tech, i) => (
                   <span
@@ -87,6 +77,15 @@ export default function Project() {
                   </span>
                 ))}
               </div>
+            </div>
+            
+            <div>
+              <h2 className="mb-4 text-3xl font-bold text-purple-400">About the Project</h2>
+              {project.detailedDescription?.map((paragraph, index) => (
+                <p key={index} className="mt-4 text-lg leading-relaxed text-gray-300">
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </div>
