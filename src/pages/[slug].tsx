@@ -87,11 +87,19 @@ export default function Project() {
                 </p>
               ))}
             </div>
+            {project.url && (
+              <div>
+                <h2 className="mb-4 text-3xl font-bold text-purple-400">Links</h2>
+                <a href={project.url} className="text-blue-300 underline hover:text-purple-500">
+                  {project.url}
+                </a>
+              </div>
+            )}
           </div>
         </div>
 
         {project.gallery && project.gallery.length > 0 && (
-          <div className="mt-20">
+          <div className="mt-16">
             <h2 className="mb-10 text-3xl font-bold text-purple-400">Project Gallery</h2>
             <div className="grid gap-8 md:grid-cols-2">
               {project.gallery.map((img, index) => (

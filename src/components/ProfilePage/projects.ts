@@ -25,6 +25,7 @@ export interface Project {
   image: StaticImageData;
   detailedDescription?: string[];
   gallery?: StaticImageData[];
+  url?: string;
 }
 
 export const projects: Project[] = [
@@ -92,6 +93,7 @@ export const projects: Project[] = [
       'A flappy rat game build with basic typescript to mimic the popular flappy bird game. Built as a fun side project for the FuzzCon 2026 convention that Råtthjälpen is the year charity. It is built with React, inlinge svgs, tailwind CSS.',
     techStack: ['Typescript', 'React', 'Tailwind CSS'],
     image: flappyrat,
+    url: 'https://ampheris.github.io/flappyrat/',
     detailedDescription: [
       'FlappyRat is a playful side project inspired by the classic Flappy Bird game, created as a fun and engaging contribution to FuzzCon 2026, where Råtthjälpen is the chosen charity.',
       'The game is built with React and TypeScript, using inline SVGs for graphics and Tailwind CSS for styling. The focus was on keeping the implementation lightweight while still delivering responsive controls and smooth gameplay.',
