@@ -10,7 +10,7 @@ export default function Navbar() {
     <nav className="fixed left-1/2 top-4 z-50 -translate-x-1/2 rounded-full bg-gray-950/70 px-6 py-4 backdrop-blur-md">
       <div className="flex gap-8 px-4 text-sm font-medium">
         {navItems.map(({ href, label }) => (
-          <a href={href} className="text-base transition-colors hover:text-purple-400">
+          <a key={label} href={href} className="text-base transition-colors hover:text-purple-400">
             {label}
           </a>
         ))}

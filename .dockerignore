@@ -1,0 +1,12 @@
+# Docker ignore
+.git
+.gitignore
+node_modules
+.next
+.DS_Store
+README.md
+.dockerignore
+Dockerfile
+npm-debug.log
+.idea
+.vscode

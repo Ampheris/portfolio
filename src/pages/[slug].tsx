@@ -28,7 +28,7 @@ export default function Project() {
   return (
     <main className="min-h-screen bg-gray-950 font-sans text-white selection:bg-purple-500 selection:text-white">
       <Head>
-        <title>{project.title} | Mathilda Holmström</title>
+        <title>Project: {project.title}</title>
       </Head>
       <Navbar />
 
@@ -78,7 +78,7 @@ export default function Project() {
                 ))}
               </div>
             </div>
-            
+
             <div>
               <h2 className="mb-4 text-3xl font-bold text-purple-400">About the Project</h2>
               {project.detailedDescription?.map((paragraph, index) => (

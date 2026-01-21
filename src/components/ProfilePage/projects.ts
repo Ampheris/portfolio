@@ -1,10 +1,16 @@
-import ratopedia from '@/img/ratopedia.png';
+import ratopedia from '@/img/ratopedia/ratopedia.png';
+import ratopediaArticle from '@/img/ratopedia/ratopedia-article.png';
+import ratopediaCategories from '@/img/ratopedia/ratopedia-categories.png';
+
 import ratportal from '@/img/Ratportal-login.png';
 
-import flappyrat from '@/img/Flappyrat-horizontal.png';
-import flappyRatGame from '@/img/flappy-rat-game.png';
-import flappyRatStart from '@/img/flappyrat-start.png';
-import flappyRatEnd from '@/img/flappy-rat-end.png';
+import flappyrat from '@/img/flappyRat/Flappyrat-horizontal.png';
+import flappyRatGame from '@/img/flappyRat/flappy-rat-game.png';
+import flappyRatStart from '@/img/flappyRat/flappyrat-start.png';
+import flappyRatEnd from '@/img/flappyRat/flappy-rat-end.png';
+
+import crmDashboard from '@/img/crm/dashboard.png';
+import fosterHomes from '@/img/crm/foster-homes.png';
 
 import portfolio from '@/img/portfolio.png';
 import ratthjalpen from '@/img/ratthjalpen.png';
@@ -30,11 +36,15 @@ export const projects: Project[] = [
     techStack: ['React', 'Typescript', 'MUI', 'Django restframework'],
     image: ratthjalpen,
     detailedDescription: [
-      'Before the CRM was introduced, Råtthjälpen relied heavily on Excel sheets to track animals, foster homes, and cases. This approach led to lost information, fragmented data, and made it extremely difficult to find historical records once animals had been adopted. Logging new animals—especially on mobile devices—was slow, frustrating, and often avoided due to how painful the process was.',
-      'The new system was designed to replace spreadsheets entirely and act as a single source of truth. It logs everything related to an animal’s lifecycle, including basic information, expenses, attachments, timestamps, adoption details, adoption papers, and, when necessary, time of death. Every change is tracked, making historical data easy to access long after a case is closed.',
+      'The first version of this CRM was built using a traditional Django setup with Jinja2 for templating. As my professional experience with React grew, I decided to re-architect the entire application as a personal learning project. This involved transforming the backend into a headless API using Django REST Framework and building a modern, responsive frontend with React. This process allowed me to stay current with the latest practices in the React ecosystem, deepen my understanding of RESTful APIs, and take the opportunity to implement a completely new and improved design.',
+      'Before the CRM was introduced, Råtthjälpen relied heavily on Excel sheets to cases, foster homes, expenses, adopted animals and much more. This approach led to lost information, fragmented data, and made it extremely difficult to find historical records once animals had been adopted. Logging new animals, especially on mobile devices, was slow, frustrating, and often avoided due to how painful the process was.',
+      'The new system was designed to replace spreadsheets entirely and act as a single source of truth. It logs everything related to an animals lifecycle, including basic information, expenses, attachments, timestamps, adoption details, adoption papers, and, when necessary, time of death. Every change is tracked, making historical data easy to access long after a case is closed.',
       'The CRM also manages foster homes with all necessary details such as contact information, addresses, and which animals they are currently fostering. In addition, it includes full member management for Råtthjälpen, expense tracking for the economic manager, and a structured overview of all active and historical cases.',
       'A strong focus was placed on usability, especially on mobile devices, ensuring that volunteers can quickly log information wherever they are. The result is a system that has drastically reduced administrative friction, preserved critical data, and made day-to-day operations significantly more efficient for everyone involved.',
+      "Security and privacy are also core features. When a contact person or foster home leaves the organization, their personal information is redacted to protect their privacy. This allows the organization to maintain essential, non-personal historical data about an animal for its expected lifetime, after which the animal's records are also redacted, ensuring compliance with data protection principles.",
+      'Please note, all images and data shown from the system are from a local development environment. The production data is confidential and handled with strict privacy controls, accessible only to authorized members of the organization.',
     ],
+    gallery: [crmDashboard, fosterHomes],
   },
   {
     slug: 'rattportalen',
@@ -54,13 +64,13 @@ export const projects: Project[] = [
     title: 'Ratopedia',
     description:
       'Ratopedia is a website that hosts a collection of articles about pet rats. It was originally built using Django, HTML, and CSS, and included a markdown editor for creating content. To make content management easier and provide a smoother experience for the team, the site was later migrated to WordPress. During 2025, the site had 4,600 users and 16,000 page views.',
-    techStack: ['Next.js', 'Typescript', 'Tailwind CSS', 'Node.js'],
+    techStack: ['Django', 'WordPress', 'HTML', 'CSS', 'Jinja2'],
     image: ratopedia,
     detailedDescription: [
-      'The migration to WordPress significantly improved the content creation workflow, allowing non-technical team members to publish articles with ease. We utilized custom post types and advanced custom fields to maintain the structured data format required for the rat care guides.',
-      'Performance was a key focus during the rebuild. We implemented aggressive caching strategies and optimized image delivery, resulting in a 40% reduction in page load times. The site now serves as a reliable resource for the pet rat community.',
+      'Ratopedia was initially developed using a stack of Django, HTML, CSS, and Jinja2, with a Markdown editor integrated for content management. The goal was to provide an easy way for writers to create and publish articles. However, it soon became apparent that most contributors were not familiar with Markdown, which created a barrier to content creation.',
+      "To prioritize ease of use for the writers and streamline the publishing workflow, the decision was made to migrate the entire site to WordPress. This move was also a strategic opportunity to explore WordPress's capabilities for hosting, content management, and rapid website development. The migration successfully empowered the team, allowing them to focus on creating quality content without technical hurdles, and provided valuable insights into using WordPress as a versatile platform.",
     ],
-    gallery: [ratopedia, ratopedia],
+    gallery: [ratopediaArticle, ratopediaCategories],
   },
   {
     slug: 'portfolio',
